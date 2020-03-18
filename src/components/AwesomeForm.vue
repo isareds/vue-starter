@@ -52,7 +52,8 @@
           </select>
         </template>
         <template v-if="header.type == 'dynamic-select'">
-          <v-select
+          <FormulateInput
+            type='select'
             class="flex-grow form-control"
             :name="header.code"
             :readonly="fieldIsReadonly(header)"
@@ -60,14 +61,7 @@
             :options="form_options[header.select.code]"
             @search="(search, event) => onSearch(search, event, header.select)"
             v-model="dataForm[header.field]"
-          >
-            <template slot="no-options">
-              {{ header.placeholder }}
-            </template>
-            <template slot="option" slot-scope="option">
-              <div>{{ option[header.select.option] }}</div>
-            </template>
-          </v-select>
+          />
         </template>
         <template v-if="header.type == 'balance'">
           <div class="flex">
@@ -180,15 +174,12 @@
 </template>
 
 <script>
-import axios from 'axios';
 import _ from 'lodash';
-import vSelect from 'vue-select';
+import { params_service } from '@/services';
 
 export default {
   name: 'awesome-form',
-  components: {
-    'v-select': vSelect,
-  },
+  components: {},
   props: {
     is_edit: { required: false, default: false },
     form: { required: true, default: {} },
@@ -233,7 +224,7 @@ export default {
     async doFetchParam(search, loading, param) {
       loading(true);
 
-      let response = await users_service.getParamType(param.url, {
+      let response = await params_service.getParamType(param.url, {
         query: search,
       });
       this.form_options[param.code] = response;
@@ -248,7 +239,7 @@ export default {
       this.headers.forEach((header) => {
         if (header.type == 'select') {
           selectCodes.push(header.select.code);
-          promises.push(users_service.getParamType(header.select.url));
+          promises.push(params_service.getParamType(header.select.url));
         }
       });
 

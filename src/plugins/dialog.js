@@ -1,5 +1,5 @@
 // we need our modal component
-import DialogModal from "../components/DialogModal.vue";
+import DialogModal from "@/components/DialogModal.vue";
 
 const Dialog = {
   // every plugin for Vue.js needs install method

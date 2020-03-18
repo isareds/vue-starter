@@ -4,8 +4,6 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-EXPOSE 8080
-
 #COPY ./package.json *yarn* ./
 #RUN yarn install
 

@@ -5,8 +5,6 @@ import axios from "axios";
 import { routes } from "@/utils/routes";
 import {
   isLoggedIn,
-  isUserActive,
-  isUserEnabled,
   getProfile
 } from "@/utils/auth";
 

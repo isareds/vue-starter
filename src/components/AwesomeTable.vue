@@ -140,8 +140,7 @@
               <popper
                 :key="action.name"
                 trigger="hover"
-                v-if="getActionVisibility(action, row)"
-                v-for="action in actions"
+                v-for="action in getVisibileActions(row)"
               >
                 <div class="popper shadow-md bg-white rounded py-1 px-2">{{ action.label }}</div>
                 <button
@@ -229,6 +228,11 @@ export default {
     selectRow(row) {
       this.selected_row = row;
       this.$emit("selected", { row: this.selected_row });
+    },
+    getVisibileActions(row) {
+      return this.actions.filter((action) => {
+        return this.getActionVisibility(action, row);
+      });
     },
     getActionVisibility(action, row) {
       if (!action.visible) {
