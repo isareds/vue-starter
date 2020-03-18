@@ -1,0 +1,127 @@
+@tailwind base;
+@import "./cog_bg.css";
+@import "./zondicon.css";
+@import "./heroicon.css";
+@import "./inter.css";
+@tailwind components;
+
+@font-face {
+  font-family: 'Toma Sans';
+  src: url('../fonts/TomaSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Toma Sans';
+  src: url('../fonts/TomaSans-Medium.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Toma Sans';
+  src: url('../fonts/TomaSans-SemiBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/*
+@font-face {
+  font-family: 'Analogue';
+  src: url('../fonts/analogue55regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Analogue';
+  src: url('../fonts/analogue65medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Analogue';
+  src: url('../fonts/analogue75bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+} */
+
+body, html {
+  font-family: Inter, sans-serif;
+}
+
+.nav-link.selected {
+  @apply border-indigo-600 bg-indigo-100 text-gray-700 font-medium;
+}
+
+.nav-link.selected span {
+  @apply text-indigo-500;
+}
+
+.nav-link.selected i {
+    @apply text-indigo-600;
+}
+
+.pill-color-superadmin {
+  @apply bg-red-200 text-red-600;
+}
+
+.pill-color-user {
+  @apply bg-teal-200 text-teal-600;
+}
+
+input {
+  @apply rounded bg-indigo-100 text-base text-gray-600 px-3 py-3 outline-none border-b border-solid border-blue-200;
+}
+
+button.disabled,
+button:disabled {
+  @apply cursor-not-allowed text-gray-700;
+}
+
+.progress-step.selected > span {
+  @apply text-indigo-700 text-lg;
+}
+
+.progress-step.selected > div {
+  @apply bg-indigo-700 text-white;
+}
+
+.card {
+  @apply rounded bg-white px-4 py-3 shadow;
+}
+
+@tailwind utilities;
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active,
+.slide-down-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active,
+.slide-down-fade-leave-active {
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-down-fade-enter,
+.slide-down-fade-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.bg-main {
+  /* background-color: #edeff0; */
+  @apply bg-gray-100;
+}
